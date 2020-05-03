@@ -1,3 +1,4 @@
 # notas
 proyecto notas con express
-generado express con $ npx express-generator
+
+-> generado express con $ npx express-generator
