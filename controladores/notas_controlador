@@ -2,20 +2,21 @@
 
 
 exports.all = (req, res) => {
+  res.json({});
 };
 
 exports.crear = (req, res) => {
- 
+  res.json({});
 };
 
 exports.leer = (req, res) => {
-    
+  res.json({});
 };
 
 exports.editar = (req, res) => {
-    
+  res.json({});  
 };
 
 exports.eliminar = (req, res) => {
-    
+  res.json({});  
 };
