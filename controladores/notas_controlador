@@ -1,0 +1,22 @@
+"use strict";
+
+
+exports.all = (req, res, next) => {
+    res.json({});
+};
+
+exports.crear = (req, res, next) => {
+    res.json({});
+};
+
+exports.leer = (req, res, next) => {
+    res.json({});
+};
+
+exports.editar = (req, res, next) => {
+    res.json({});
+};
+
+exports.eliminar = (req, res, next) => {
+    res.json({});
+};
