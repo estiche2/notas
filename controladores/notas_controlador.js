@@ -2,9 +2,16 @@
 var modelo= require('../modelos/model_notas');
 
 exports.all = (req, res) => {
-  
-  res.json({});
-};
+  modelo.categorias.find({}, function(err,cat){ 
+      modelo.notas.find().sort('fecha').limit().exec(function(err, doc){
+        if (err || doc == null) {
+          res.status(404).send('Not found');
+        return;
+        } 
+        res.json({doc , cat });
+      });
+    });
+  };
 
 exports.crear = (req, res) => {
   
