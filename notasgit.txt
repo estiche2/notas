@@ -1,0 +1,15 @@
+git add
+
+git branch  >> ramas
+
+git commit -m 'lo que sea'
+
+git push  >> actualiza remoto
+
+-- git push notas master
+
+git pull  >> actualiza local
+
+git remote add notas https://github.com/estiche2/notas  >> nombra remote
+
+git checkout master >> cambia a master (con -b se crea una nueva)
