@@ -1,4 +1,5 @@
 var router = require('express').Router();
+var notas_controlador = require ('../controladores/notas_controlador');
 
 //rutas para notas
 
@@ -24,13 +25,13 @@ router.get('/index', function (req, res,){});
 //rutas para nota
 //implementara un controlador CRUD
   router.route('/')
-    .get(function (req, res,){})
-    .post(function (req, res,){});
+    .get(function (req, res,){notas_controlador.all(req, res)})
+    .post(function (req, res,){notas_controlador.crear(req, res)});
     
   router.route('/:id')
-    .get(function (req, res,){})
-    .put(function (req, res,){})
-    .delete(function (req, res,){})
+    .get(function (req, res,){notas_controlador.lee(req, res)})
+    .put(function (req, res,){notas_controlador.editar(req, res)})
+    .delete(function (req, res,){notas_controlador.eliminar(req, res)})
   
   //para poder usar los metodos put y delete habra que usar method-override
   
