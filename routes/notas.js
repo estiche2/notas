@@ -1,4 +1,5 @@
 var router = require('express').Router();
+var notas_controlador = require ('../controladores/notas_controlador');
 
 //rutas para notas
 
