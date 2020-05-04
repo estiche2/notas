@@ -54,16 +54,21 @@ exports.crear = (req, res) => {
 							res.status(404).send('hubo un error al salvar la nota');
 						    return;
 							}
-  res.json({req.body});
-};
+  					res.json({titulo : req.body.titulo, texto : req.body.texto, categoria : cat._id });
+					});
+				});
+				};
+			});
 
+};
 exports.leer = (req, res) => {
   modelo.notas.find({_id:req.params.id}).populate('categoria').exec(function(err, doc){
 		if (err || doc == null) {
 			res.status(404).send('Not found');
 			return;
 		} 
-  res.json({doc[0]});
+  res.json({doc});
+});
 };
 
 exports.editar = (req, res) => {
@@ -73,13 +78,14 @@ exports.editar = (req, res) => {
 				res.status(404).send('Not found');
 				return;
 			} 
-  res.json({doc[0]});  
+  res.json({doc});  
+});
 };
-
-exports.eliminar = (req, res) => {
-  modelo.notas.findByIdAndRemove({_id:req.params.id}).exec(function(err, doc){    
-			if(err) {return res.json(500, {message: 'id no existe, nada que eliminar'})};    
-			return res.json(200, {message: 'Nota eliminada correctamente'});  
+exports.eliminar = (req, res) => {modelo.notas.findByIdAndRemove({_id:req.params.id})
+								.exec(function(err, doc){    
+									if(err) {return res.json(500, {message: 'id no existe, nada que eliminar'})};    
+									return res.json(200, {message: 'Nota eliminada correctamente'})
+									}) 
 			//res.send('Nota eliminada correctamente......');
 		 
-};
+}

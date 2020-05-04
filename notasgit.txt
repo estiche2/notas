@@ -1,0 +1,23 @@
+git add
+
+git branch  >> ramas
+
+git commit -m 'lo que sea'
+
+git push  >> actualiza remoto
+
+-- git push notas master
+
+git pull  >> actualiza local
+
+git remote add notas https://github.com/estiche2/notas  >> nombra remote
+
+git checkout master >> cambia a master (con -b se crea una nueva)
+
+git pull es una abreviación de git fetch seguido de git merge FETCH_HEAD.
+	(Es decir, git fetch trae los cambios, pero los deja en otro branch, hasta que se hace el git merge para traerlos al branch local.)
+
+
+git reset HEAD~1 >> elimina un commit sin deshacer cambios
+
+git reset --hard HEAD~3 >> elimina 3 commits atrás y sus cambios
