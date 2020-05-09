@@ -4,7 +4,9 @@ var notas_controlador = require ('../controladores/notas_controlador');
 //rutas para notas
 
 //buscador full text
-//router.post('/buscar',function (req, res) {});
+router.post('/buscar',function (req, res) {
+ notas_controlador.find(req, res)});
+});
   
 
 /*
