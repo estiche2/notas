@@ -1,6 +1,15 @@
 "use strict";
 var modelo= require('../modelos/model_notas');
 
+exports.find = (req, res) => {
+  modelo.notas.find({$text{$search:req.query.texto}})
+	.exec(function(err,doc){
+	if (err || doc == null) {
+          res.status(404).send('Not found');
+        return;}
+	res.json({doc});
+  	});
+  };
 exports.all = (req, res) => {
   modelo.categorias.find({}, function(err,cat){ 
       modelo.notas.find().sort('fecha').limit().exec(function(err, doc){
