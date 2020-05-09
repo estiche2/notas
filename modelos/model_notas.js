@@ -24,6 +24,7 @@ var catSchema = new mongoose.Schema({
     name: String,
     
 });
+notasSchema.index({titulo:'text', texto:'text'});
 
 exports.notas = mongoose.model('nota', notasSchema);
 exports.categorias = mongoose.model('categorias', catSchema);
