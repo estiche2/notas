@@ -2,7 +2,7 @@
 var modelo= require('../modelos/model_notas');
 
 exports.find = (req, res) => {
-  modelo.notas.find({$text{$search:req.query.texto}})
+  modelo.notas.find({$text:{$search:req.query.texto}})
 	.exec(function(err,doc){
 	if (err || doc == null) {
           res.status(404).send('Not found');
