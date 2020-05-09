@@ -25,5 +25,8 @@ var catSchema = new mongoose.Schema({
     
 });
 
+notasSchema.index({titulo:'text' ,texto:'text'});
+//para agregar todos los campos al indice "schema.index({$**:'text'})"
+
 exports.notas = mongoose.model('nota', notasSchema);
 exports.categorias = mongoose.model('categorias', catSchema);
