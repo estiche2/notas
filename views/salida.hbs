@@ -1,0 +1,59 @@
+
+
+{{> nav_notas}}
+
+
+<div class="container" style="padding-top: 70px">
+
+  <h2 class="m-0 text-center">ENTRADAS</h2>
+
+  <div class="row ">
+    <div class="col-lg-3 mx-auto">
+      <div class="card m-4 text-center ">
+        
+        <div class="card-body">
+          <h5 class="card-title">Categorias</h5>   
+             
+              {{# each categorias}}
+               <p class=""><a href="/notas/{{name}}">{{name}}</a></p>
+              {{/each}}
+              
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-8 mx-auto">
+
+      {{# each notas}}
+       <div class="row col-10 mx-auto">
+        <div class="card my-2">
+        <div class="card-body" >
+          <a href="/nota/{{_id}}"><h5 class="card-title">{{titulo}}</h5></a>
+          <p>{{resumen}}</p>
+        </div>
+        <div class="card-footer my-0 text-muted">
+          publicado el {{fecha}} por <a>pepe</a>
+        </div>
+      </div>
+      </div>
+      {{/each}}
+      
+    </div>
+    
+
+  </div>
+  
+</div>
+
+
+
+
+<footer class="py-5 bg-dark">
+  <div class="container">
+    <p class="m-0 text-center text-white">Copyright &copy; Your Website 2018</p>
+  </div>
+  
+</footer>
+
+
+
+
