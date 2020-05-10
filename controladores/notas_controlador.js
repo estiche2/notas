@@ -72,6 +72,7 @@ exports.crear = (req, res) => {
 };
 exports.leer = (req, res) => {
   modelo.notas.find({_id:req.params.id}).populate('categoria').exec(function(err, doc){
+		
 		if (err || doc == null) {
 			res.status(404).send('Not found');
 			return;
@@ -91,7 +92,7 @@ exports.editar = (req, res) => {
 });
 };
 exports.eliminar = (req, res) => {modelo.notas.findByIdAndRemove({_id:req.params.id})
-								.exec(function(err, doc){    
+								.exec(function(err, doc){  
 									if(err) {return res.json(500, {message: 'id no existe, nada que eliminar'})};    
 									return res.json(200, {message: 'Nota eliminada correctamente'})
 									}) 
