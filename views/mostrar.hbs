@@ -1,0 +1,35 @@
+{{> nav_nota}}
+
+<div>
+  <div class="container" >
+    <div class="row"  >
+      <div class="col-lg-auto col-md-auto mx-auto"  >
+        <div class="post-heading" style="padding:70px;">
+          <h1 style="text-align: center;">{{nota.titulo}}</h1>
+          <h4 class="subheading"> categoria : {{nota.categoria.name}}</h4>
+          <span class="meta" >Posted by pepe el {{nota.fecha}}</span
+        </div>
+      </div>
+    </div>
+</div>
+<!-- Post Content -->
+<article>
+  <div class="container">
+    <div class="row" style="">
+      <div class="col-lg-9 col-md-9 mx-auto" style="font-size:12pt" >
+
+{{{nota.texto}}}
+
+      </div>
+    </div>
+  </div>
+</article>
+
+<hr>
+
+<!-- Footer -->
+<footer>
+{{> pie}}
+</footer>
+
+

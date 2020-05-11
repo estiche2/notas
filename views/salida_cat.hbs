@@ -1,0 +1,41 @@
+
+
+
+
+{{> nav_nota}}
+
+
+
+
+<div class="container" style="padding-top: 70px">
+
+<h1 class="m-0 text-center">resultado</h1>
+<h3 class="m-0 text-center">encontradas {{numero}} en <em>{{cat}}</em></h3>
+    <div class="col-lg-8 mx-auto ">
+
+      {{# each notas}}
+       <div class="row col-10 mx-auto ">
+      <div class="card my-4">
+        <div class="card-body" >
+          <a href="/notas/{{_id}}"><h5 class="card-title">{{titulo}}</h5></a>
+          <p>{{resumen}}</p>
+        </div>
+        <div class="card-footer my-0 text-muted">
+          publicado el {{fecha}} por <a>pepe</a>
+        </div>
+      </div>
+      </div>
+      {{/each}}
+      
+    </div>
+    
+
+  </div>
+
+
+
+    
+<footer>
+{{> pie}}
+</footer>
+

@@ -1,0 +1,47 @@
+
+<!-- https://www.tiny.cloud/docs/quick-start/ -->
+
+{{> nav_nota}}
+
+<div class="container">
+
+<h1 class="text-center"></h1>
+
+<div class="row" style="margin-top:10px">
+   <div class="offset-md-2 col-lg-12 col-md-9 mx-auto">
+      <div class="card" >
+         <div class="card-header text-center">
+            Editar nota
+         </div>
+         <div class="card-body" >
+          <!--   Abrir el formulario e indicar el método POST   -->
+            <form method="post" action = "/notas/{{nota._id}}?_method=PUT">
+                <div class="form-group text-center">
+                  <input type="submit"  style="padding:8px 100px;margin-top:25px;" value="ENVIAR">
+                  <input type="submit" name="boton" style="padding:8px 100px;margin-top:25px;"  value="VOLVER">
+                </div>
+
+                <h2 class="m-0 text-center">{{nota.titulo}}</h2>
+
+                <div class="form-group text-center">
+
+                    <textarea  name="texto" id="editor" >{{nota.texto}} </textarea>
+
+                </div>
+
+                
+            <!--  Cerrar formulario -->
+          </form>
+            
+
+
+         </div>
+      </div>
+   </div>
+</div>
+
+</div>
+ 
+{{> pie}}
+
+  

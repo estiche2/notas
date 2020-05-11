@@ -1,0 +1,60 @@
+
+{{> nav_notas}}
+
+<!-- https://www.tiny.cloud/docs/quick-start/ -->
+
+<div class="container">
+
+<h1 class="text-center"></h1>
+
+<div class="row" style="margin-top:10px">
+   <div class="offset-md-2 col-lg-12 col-md-9 mx-auto">
+      <div class="card" >
+         <div class="card-header text-center">
+            Crear nota
+         </div>
+         <div class="card-body" >
+          <!--   Abrir el formulario e indicar el método POST   -->
+            <form method="post" action="/notas/">
+                <div class="form-row">
+                  <div class="form-group col-md-4">
+                    <label for="categoria">Categoria</label>
+                    <input list="cat" type="text" name="categoria" id="categoria" class="form-control">
+                    <datalist id="cat">
+                     
+                    </datalist>
+                  </div>
+
+                  <div class="form-group col-md-6">
+                    <label for="title">Título</label>
+                    <input type="text" name="titulo" id="title" class="form-control">
+                  </div>
+                </div>
+
+
+
+                <div class="form-group text-center">
+
+                    <textarea  name="texto" id="editor" > </textarea>
+
+                </div>
+
+                <div class="form-group text-center">
+                  <input type="submit"  style="padding:8px 100px;margin-top:25px;" value="ENVIAR">
+                  <input type="submit" name="boton" style="padding:8px 100px;margin-top:25px;"  value="VOLVER">
+                </div>
+            <!--  Cerrar formulario -->
+          </form>
+            
+
+
+         </div>
+      </div>
+   </div>
+</div>
+
+</div>
+ 
+{{> pie}}
+
+  

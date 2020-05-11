@@ -19,7 +19,7 @@ hbs.registerPartials(__dirname + '/views/partials');
 
 
 app.set('view engine', 'hbs');
-
+app.use(require('express-method-override')('_method'));
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
