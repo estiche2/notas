@@ -96,8 +96,8 @@ exports.lee = (req, res) => {
 };
 
 exports.editar = (req, res) => {
-	//Cambiar por findOne
-  		modelo.notas.findByIdAndUpdate(req.params.id,{titulo : req.body.titulo, texto : req.body.texto, resumen:""})
+	 var r = req.body.texto.replace(/<[^<]+>/g,'').slice(0, 300) + '............';
+  		modelo.notas.findByIdAndUpdate(req.params.id,{titulo : req.body.titulo, texto : req.body.texto, resumen: r})
   		.exec(function(err, doc){
 			if (err || doc == null) {
 				res.status(404).send('Not found');

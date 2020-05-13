@@ -15,7 +15,7 @@
           <h5 class="card-title">Categorias</h5>   
              
               {{# each categorias}}
-               <p class=""><a href="/notas/cat/{{_id}}">{{name}}</a></p>
+               <p class="card-text"><a href="/notas/cat/{{_id}}">{{name}}</a></p>
               {{/each}}
               
         </div>
@@ -28,7 +28,7 @@
         <div class="card my-2">
         <div class="card-body" >
           <a href="/notas/{{_id}}"><h5 class="card-title">{{titulo}}</h5></a>
-          <p>{{resumen}}</p>
+          <p class="card-text">{{{resumen}}}</p>
         </div>
         <div class="card-footer my-0 text-muted">
           publicado el {{fecha}} por <a>pepe</a>

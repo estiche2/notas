@@ -13,10 +13,25 @@
     <link rel="stylesheet" href="/stylesheets/style.css" >
 
 	<script>
-      tinymce.init({
-  		selector: 'textarea#editor', height: 600,
-      plugins: ["advlist autolink lists link image charmap print preview code"]
-      //"searchreplace visualblocks code fullscreen","insertdatetime media table paste imagetools wordcount"],
+      
+      /*tinyMCE.init({
+        
+theme : "advanced",
+mode : "textarea",
+plugins : "fullpage",
+theme_advanced_buttons1 : "link, unlink,",
+language : "es",
+force_br_newlines : true,
+force_p_newlines : false,
+forced_root_block : false,
+});
+
+*/    tinymce.init({
+  		selector: 'textarea#editor', 
+      height: 600,
+      plugins: ["advlist autolink lists link image charmap print preview anchor","searchreplace visualblocks code fullpage"
+      ,"insertdatetime media table paste imagetools wordcount"],
+      language : "es"
 		});
 
   	</script>
