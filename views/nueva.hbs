@@ -1,5 +1,5 @@
 
-{{> nav_notas}}
+
 
 <!-- https://www.tiny.cloud/docs/quick-start/ -->
 
@@ -21,7 +21,9 @@
                     <label for="categoria">Categoria</label>
                     <input list="cat" type="text" name="categoria" id="categoria" class="form-control">
                     <datalist id="cat">
-                     
+                      {{# each categoria}}
+                     <option value="{{name}}">
+                      {{/each}}
                     </datalist>
                   </div>
 

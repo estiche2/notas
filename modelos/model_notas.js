@@ -12,11 +12,12 @@ var notasSchema = new mongoose.Schema({
     fecha: {type : Date, get: function(f){return f.toLocaleDateString()}, default: Date.now },
     texto: String,
     // Coloco un setter para que elimine cualquier tag de html
-    resumen: {type : String, set: function(r){
-    	var resumen = r.replace(/<[^<]+>/g,'') + '.......';
+    resumen: {type : String, set: function(){
+    	var r = this.texto.slice(0, 300); 
+        var resumen = r.replace(/<[^<]+>/g,'') + '.......';
     	return resumen;
-    	},
-    default : function(texto){ return this.texto.slice(0, 300)}}
+    	}}
+    //default : function(texto){ return this.texto.slice(0, 300)}}
 });
 //notasSchema.set('toObject',{getters:true}); <== investigar
 var catSchema = new mongoose.Schema({

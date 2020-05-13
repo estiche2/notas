@@ -1,7 +1,7 @@
 
 <!-- https://www.tiny.cloud/docs/quick-start/ -->
 
-{{> nav_nota}}
+
 
 <div class="container">
 
@@ -20,9 +20,11 @@
                   <input type="submit"  style="padding:8px 100px;margin-top:25px;" value="ENVIAR">
                   <input type="submit" name="boton" style="padding:8px 100px;margin-top:25px;"  value="VOLVER">
                 </div>
-
-                <h2 class="m-0 text-center">{{nota.titulo}}</h2>
-
+                <div class="form-group text-center">
+                  <h4 >
+                    <input class="text-center" name="titulo" id="" value="{{nota.titulo}}">
+                  </h4>
+                </div>
                 <div class="form-group text-center">
 
                     <textarea  name="texto" id="editor" >{{nota.texto}} </textarea>

@@ -3,6 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
+    "nodemon": "nodemon node ./bin/www",	
     "start": "node ./bin/www"
   },
   "dependencies": {
@@ -18,6 +19,10 @@
     "http-errors": "~1.6.3",
     "jquery": "^3.5.1",
     "mongoose": "^5.9.11",
-    "morgan": "~1.9.1"
+    "morgan": "~1.9.1",
+    "tinymce": "^5.2.2"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.3"
   }
 }

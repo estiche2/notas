@@ -25,7 +25,13 @@ router.get('/buscar',function (req, res) {
 //listara todas las categorias y las notas
 
 router.get('/index', function (req, res,){
-  res.render('nueva',{layout:'layouts/layout-jq-bstp'});
+  modelo.categorias.find({}, function(err,doc){
+  if (err || doc == null) {
+      res.status(404).send('Not found');
+      return;
+    }  
+  res.render('nueva',{layout:'layouts/layout-jq-bstp', categoria:doc.categoria});
+  })
 });
 
 //estudiar CRUD para categorias
