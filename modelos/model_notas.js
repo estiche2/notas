@@ -13,11 +13,7 @@ var notasSchema = new mongoose.Schema({
     texto: String,
     // Coloco un setter para que elimine cualquier tag de html
     resumen: {type : String,
-     //set : function(r){return resumen},
-     default : function(){ 
-        var r = this.texto.replace(/<[^<]+>/g,'').slice(0, 300) + '............';
-        return r
-        }
+     set : function(text){return text.replace(/<[^<]+>/g,'').slice(0, 200) + '............'}
     }
 });
 //notasSchema.set('toObject',{getters:true}); <== investigar

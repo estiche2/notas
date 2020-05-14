@@ -39,7 +39,8 @@ exports.crear = (req, res) => {
 						titulo : req.body.titulo,
 						texto : req.body.texto,
 						//como la categoria existe cogemos su _id
-						categoria : doc._id 
+						categoria : doc._id,
+						resumen : req.body.texto 
 						});
 				nota.save(function(err){
 					if (err) throw err;
@@ -61,7 +62,8 @@ exports.crear = (req, res) => {
 					var nota = new modelo.notas({
 						titulo : req.body.titulo,
 						texto : req.body.texto,
-						categoria : cat._id 
+						categoria : cat._id,
+						resumen : req.body.texto 
 					});
 					nota.save(function(err){
 						if (err) {
@@ -96,8 +98,8 @@ exports.lee = (req, res) => {
 };
 
 exports.editar = (req, res) => {
-	 var r = req.body.texto.replace(/<[^<]+>/g,'').slice(0, 300) + '............';
-  		modelo.notas.findByIdAndUpdate(req.params.id,{titulo : req.body.titulo, texto : req.body.texto, resumen: r})
+	 //var r = req.body.texto.replace(/<[^<]+>/g,'').slice(0, 200) + '............';
+  		modelo.notas.findByIdAndUpdate(req.params.id,{titulo : req.body.titulo, texto : req.body.texto, resumen : req.body.texto})
   		.exec(function(err, doc){
 			if (err || doc == null) {
 				res.status(404).send('Not found');
