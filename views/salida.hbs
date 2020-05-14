@@ -9,15 +9,17 @@
 
   <div class="row ">
     <div class="col-lg-3 mx-auto">
-      <div class="card m-4 text-center ">
+      <div class="card m-4 text-center">
         
         <div class="card-body">
           <h5 class="card-title">Categorias</h5>   
-             
+             <div class="card-body" type="display: flex ; justify-content: space-around">
               {{# each categorias}}
-               <p class="card-text"><a href="/notas/cat/{{_id}}">{{name}}</a></p>
+           
+              <a href="/notas/cat/{{_id}}">{{name}}</a>
+          
               {{/each}}
-              
+              </div>
         </div>
       </div>
     </div>

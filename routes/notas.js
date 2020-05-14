@@ -30,7 +30,8 @@ router.get('/index', function (req, res,){
       res.status(404).send('Not found');
       return;
     }  
-  res.render('nueva',{layout:'layouts/layout-jq-bstp', categoria:doc.categoria});
+    console.log(doc[0].name)
+  res.render('nueva',{layout:'layouts/layout-jq-bstp', categoria:doc});
   })
 });
 
