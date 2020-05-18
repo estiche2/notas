@@ -1,7 +1,17 @@
 "use strict";
 var modelo= require('../modelos/model_notas');
+var pag= require('../public/lib/paginador.js');
 
-
+exports.nueva = (req, res) => {
+  modelo.categorias.find({}, function(err,doc){
+  if (err || doc == null) {
+      res.status(404).send('Not found');
+      return;
+    }  
+    console.log(doc[0].name)
+  res.render('nueva',{layout:'layouts/layout-jq-bstp', categoria:doc});
+  })
+};
 
 exports.find = (req, res) => {
   modelo.notas.find({$text:{$search:req.query.texto}})
@@ -13,18 +23,54 @@ exports.find = (req, res) => {
   	});
   };
 
+exports.cat = (req, res) => {
+  let perPage = 5;
+  let page = req.query.page || 1;
+	modelo.categorias.findOne({_id: req.params.id}, function(err,cat){
+  		if (err || cat == null) {
+      		res.status(404).send('Not found');
+      	return;
+    	}  
+  		modelo.notas.find({categoria:cat._id}).populate('categoria')
+  		.find({}) // finding all documents
+    	.skip((perPage * page) - perPage) // in the first page the value of the skip is 0
+    	.limit(perPage) // output just 9 items
+		.sort('titulo')
+		.exec(function(err, doc){
+			modelo.notas.countDocuments({categoria:cat._id},(err, count) => {
+    			if (err || doc == null) {
+      				res.status(404).send('Not found');
+      				return;
+        		} 
+        	 //if (err) return next(err);
+        	var pages = Math.ceil(count / perPage)
+    		res.render('salida_cat',{layout:'layouts/layout-jq-bstp', cat:doc.categoria, notas:doc, numero: count, paginador: pag.paginador(pages,page)});
+  			});
+		});		
+ 	}); 
+};
 
 exports.all = (req, res) => {
-
-	modelo.categorias.find({}, function(err,cat){ 
-      modelo.notas.find().sort('fecha').limit().exec(function(err, doc){
-        if (err || doc == null) {
+  let perPage = 5;
+  let page = req.query.page || 1;
+  modelo.categorias.find({}, function(err,cat){
+  modelo.notas
+    .find({}) // finding all documents
+    .skip((perPage * page) - perPage) // in the first page the value of the skip is 0
+    .limit(perPage) // output just 9 items
+    .sort('titulo')
+    .exec((err, doc) => {
+      modelo.notas.countDocuments((err, count) => { // count to calculate the number of pages
+       if (err || doc == null) {
           res.status(500).send('Fallo la base de datos');
         return;
         } 
-        res.render('salida',{layout:'layouts/layout-jq-bstp', notas : doc , categorias : cat });
+        //if (err) return next(err);
+        var pages = Math.ceil(count / perPage)
+        res.render('salida', {layout:'layouts/layout-jq-bstp',notas: doc,categorias : cat,paginador: pag.paginador(pages,page)});
       });
     });
+  });
 };
 
 

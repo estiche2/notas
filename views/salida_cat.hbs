@@ -14,7 +14,7 @@
     <div class="col-lg-8 mx-auto ">
 
       {{# each notas}}
-       <div class="row col-10 mx-auto ">
+       <div class="row  mx-auto ">
       <div class="card my-4">
         <div class="card-body" >
           <a href="/notas/{{_id}}"><h5 class="card-title">{{titulo}}</h5></a>
@@ -29,13 +29,14 @@
       
     </div>
     
+    {{{paginador}}}
 
   </div>
 
 
 
     
-<footer>
+<footer class="py-5 bg-great">
 {{> pie}}
 </footer>
 
